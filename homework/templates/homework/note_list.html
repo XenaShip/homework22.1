@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class="p-2 btn btn-outline-primary" href="{% url 'homework:create_note' %}">Создать</a>
+<div class="container">
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{ object.the_text }}</h1>
+                    <a class="p-2 btn btn-outline-primary" href="{% url 'homework:note_detail' object.slug %}">Подробнее</a>
+                    <a class="p-2 btn btn-outline-primary" href="{% url 'homework:note_delete' object.slug %}">Удалить</a>
+                    <a class="p-2 btn btn-outline-primary" href="{% url 'homework:update_note' object.slug %}">Изменить</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>
+
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

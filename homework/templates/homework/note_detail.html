@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+{% block content %}
+  <div class="row text-center">
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{ object.made }} руб.</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{ object.the_text }}</li>
+                        <li>- {{ object.slug }}</li>
+                        <li>- опубликовано {{ object.made }}</li>
+                        <li>- {{ object.published }}</li>
+                        <li>- количество просмотров {{ object.views }}</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+                </div>
+            </div>
+        </div>
+      <!-- Исходный вариант -->
+        <!--<img src="/media/{{ object.preview }}" /> -->
+        <img src="{% media_path object.image %}" />
+  </div>
+{% endblock %}
